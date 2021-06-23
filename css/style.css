@@ -1,0 +1,44 @@
+/* common */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[v-cloak]{
+    display: none;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.container{
+    width: 70%;
+    margin: 30px auto;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+/* header */
+
+header{
+    text-align: center;
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: green;
+    margin-bottom: 15px;
+}
+
+header input,
+header button{
+    padding: 15px 5px;
+    border-radius: 5px;
+    border: 1px solid lightslategray;
+}
