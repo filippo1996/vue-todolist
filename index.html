@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todolist</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,700&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,6 +23,21 @@
             <button class="btn" @click="saveTodo">Salva</button>
         </header>
         <!-- fine intestazione -->
+
+        <!-- inizio contenuto principale -->
+        <main>
+            <!-- inizio sezione lista todos -->
+            <section id="todoList">
+                <ul v-if="todosList.length > 0">
+                    <li class="list border-bottom clearfix" v-for="(todoList, index) in todosList" v-cloak>{{index + 1}} - {{todoList}}
+                        <span class="btn float-right" title="Elimina promemoria" @click="deleteTodo(index)"><i class="fas fa-trash"></i></span>
+                    </li>
+                </ul>
+                <h2 class="alert" v-else v-cloak>Nessuna lista disponibile, prova ad aggiungere qualcosa</h2>
+            </section>
+             <!-- fine sezione lista todos -->
+        </main>
+        <!-- fine contenuto principale -->
     </div>
      <!-- script Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

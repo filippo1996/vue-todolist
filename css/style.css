@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 [v-cloak]{
     display: none;
 }
@@ -22,10 +26,36 @@
     cursor: pointer;
 }
 
+.list{
+    list-style: none;
+    line-height: 1.8;
+    padding: 10px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid white;
+}
+
+.float-right{
+    float: right;
+}
+
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.alert{
+    padding: 10px;
+    color: red;
+}
+
 /* header */
 
 header{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .logo{
@@ -41,4 +71,12 @@ header button{
     padding: 15px 5px;
     border-radius: 5px;
     border: 1px solid lightslategray;
+}
+
+
+/* main */
+#todoList{
+    background: #f0f0f5;
+    padding: 20px;
+    border-radius: 10px;
 }
