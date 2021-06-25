@@ -25,14 +25,14 @@ class Todos {
     {
         if( !this.hasTempItem ) return
 
-        this.tempItem.remove();
+        //this.tempItem.remove();
         this.tempItem = '';
         this.hasTempItem = false;
     }
 
     saveTempTodo()
     {
-        this.tempItem.classList.remove('temp');
+        this.tempItem?.classList.remove('temp');
         this.hasTempItem = false;
     }
 
@@ -49,6 +49,7 @@ class Todos {
 
             if( eve.target.value === '' ){
                 this.removeTempItem();
+                //alert('non puoi lasciare questo campo vuoto');
                 return;
             }
     
@@ -57,8 +58,8 @@ class Todos {
             //console.log(this.data, eve.key);
             //this.getShowInput('#outputTodo', this.data.valueInput, 'innerHTML');
             if(eve.key === keyboard){
-                this.saveTempTodo();
                 this.addTodosList( eve.target.value);
+                this.saveTempTodo();
                 //console.log(this.data.todosList);
             }
         });
@@ -94,8 +95,8 @@ class Todos {
     setClick(id){
         const doc = id ? document.querySelector(id) : document;
         doc.addEventListener('click',(eve) => {
-            this.saveTempTodo();
             this.addTodosList(this.data.valueInput);
+            this.saveTempTodo();
             console.log(this.data.todosList);
         });
     }
@@ -105,7 +106,10 @@ class Todos {
      */
     addTodosList( str ){
         str = str?.trim();
-        if(!str) return false;
+        if(!str){
+            alert('non puoi lasciare questo campo vuoto');
+            return false;
+        }
         
         this.data.todosList.unshift(str);
         this.tempItem.innerHTML += `<span class="btn float-right" title="Elimina promemoria"><i class="fas fa-trash"></i></span>`;
